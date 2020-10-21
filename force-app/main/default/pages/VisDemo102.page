@@ -1,0 +1,4 @@
+<apex:page showHeader="true" tabstyle="Case">
+    <apex:ListViews type="Case" />
+    <apex:ListViews type="titanOrder__c" />
+</apex:page>

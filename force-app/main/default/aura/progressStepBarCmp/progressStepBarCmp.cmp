@@ -1,0 +1,51 @@
+<aura:component implements="flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" access="global" >
+    <aura:attribute name="progressStepCount"
+                    type="Integer"
+                    description="Indicates the number of progress steps to display"
+                    default="4"
+                    access="PUBLIC"/>
+    <aura:attribute name="step" 
+                    type="Integer" 
+                    default="1"
+                    description="Active progress step"
+                    access="PUBLIC"/>
+    <aura:attribute name="stepDisplayText" 
+                    type="String" 
+                    default="Monry out Request Data Capture"
+                    description="Title displayed for the step"
+                    access="PUBLIC"/>
+    <aura:attribute name="progressStepList"
+                    type="List"
+                    description="Progress step list collection"
+                    access="PRIVATE"/>
+    <aura:handler name="init" 
+                  value="{!this}" 
+                  action="{!c.doInit}"/> 
+    <aura:handler name="change"
+                  value="{!v.step}"
+                  action="{!c.handleStepChangeEvent}"/>
+    
+ 
+    
+    <div class="backcolor">
+    <div class="slds-progress">
+        <ol class="slds-progress__list">
+            <aura:iteration items="{!v.progressStepList}" var="progressStep">
+                 <li aura:id="{!progressStep.id}" class="{!progressStep.class}">
+                    <button class="slds-button slds-progress__marker " aria-describedby="{!progressStep.tooltip}">
+                        <span class="slds-assistive-text">{!progressStep.name}</span>
+                    </button> 
+                </li>
+            </aura:iteration>
+        </ol>
+        <div class="slds-progress-bar">
+            <span aura:id="percentCompleted" class="slds-progress-bar__value" style="width:0%;">
+            </span>
+        </div>
+        
+  	</div>
+        <div>
+           <center> <ui:outputText value="{!v.stepDisplayText}" class="step-text"/></center>
+        </div>
+    </div>
+</aura:component>

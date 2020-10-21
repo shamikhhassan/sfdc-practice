@@ -1,0 +1,15 @@
+<aura:component abstract="true">
+	<aura:attribute name="showSpinner" 
+					type="Boolean"
+					default="false"
+					description="Indicates if a loading indicator is displayed"
+					access="PRIVATE"/>
+    <aura:attribute name="error" type="String" />
+	<div>
+		<aura:if isTrue="{!v.showSpinner}">
+			<lightning:spinner variant="brand" size="large"/>
+		</aura:if>
+		{!v.body}
+	</div>
+    <ui:outputText value="{!v.error}" />   
+</aura:component>

@@ -1,0 +1,15 @@
+<aura:component abstract="true" extends="c:baseLightningCmp">
+	<aura:attribute name="classObjectType"
+                    type="String"
+                    default="RA_Class_Template__c"
+                    description="Salesforce class object type: RA_Class_Template__c or RA_Class__c"
+                    access="PUBLIC"></aura:attribute>
+    <aura:handler name="init" 
+                  value="{!this}" 
+                  action="{!c.doInit}"/>
+    <aura:registerEvent name="progressStepEvent" 
+                        type="c:progressStepEvt" />
+     <div aura:id="wizardFormBaseComponent">
+            {!v.body}
+     </div>
+</aura:component>

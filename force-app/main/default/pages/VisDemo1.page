@@ -1,0 +1,53 @@
+<apex:page sidebar="false" controller="TreeViewController" showheader="true">
+<apex:sectionHeader title="Custom Home Page" subtitle="Tree View"/>
+<apex:pageBlock >
+
+<!-- Include the Jquery Script files -->
+    <link rel="stylesheet" href="{!URLFOR($Resource.Jtreeview,'Jquerytreeview/jquery.treeview.css')}"/>
+    <script src="{!URLFOR($Resource.Jtreeview,'Jquerytreeview/jquery.js')}" type="text/javascript"></script>
+    <script src="{!URLFOR($Resource.Jtreeview,'Jquerytreeview/jquery.cookie.js')}" type="text/javascript"></script>
+    <script src="{!URLFOR($Resource.Jtreeview,'Jquerytreeview/jquery.treeview.js')}" type="text/javascript"></script>
+<!-- End of Javascript files -->
+<script type="text/javascript">
+        $(function() {
+            $("#tree").treeview({
+                collapsed: true,
+                animated: "medium",
+                control:"#sidetreecontrol",
+                persist: "location"
+            });
+        })
+</script>
+
+<!-- Tree -->
+
+<div class="treeheader" style="height:0px;">&nbsp;</div>
+<div id="sidetreecontrol"><a href="?#"><font style="color:blue;">Collapse All</font></a> | <a href="?#"><font style="color:blue;">Expand All</font></a></div>
+<ul id="tree">
+    <apex:repeat value="{!mainnodes}" var="parent">
+        <li><strong><apex:outputtext style="color:blue;" escape="false" value="{!parent.gparent.Name}"/></strong>
+             <ul>
+                 <apex:repeat value="{!parent.parent}" var="child">
+                    <li><span class="formattextcon"><apex:outputtext style="color:green;" escape="false" value="{!child.Id}"/><b>>></b><apex:outputtext style="color:green;" escape="false" value="{!child.Name}"/></span>
+                        <ul>
+                            <apex:repeat value="{!child.Tasks__r}" var="gchildren">
+                               <li> <span class="formattextcon"> <apex:outputtext escape="false" style="color:red;" value="{!gchildren.Id}"/> <b>
+                               ||</b> &nbsp;<apex:outputtext escape="false" value="{!gchildren.Name}"/> </span> </li>
+                               
+                            </apex:repeat>
+                        </ul>
+                         
+                    </li>
+                 </apex:repeat>  
+             </ul>  
+        </li>
+    </apex:repeat>
+</ul>
+
+<!-- End of Tree -->
+</apex:pageBlock>
+<apex:enhancedList height="200" customizable="false" type="titanOrder__c" />
+<apex:enhancedList height="200" customizable="false" type="titanItem__c" />
+<apex:enhancedList height="200" type="titanTask__c" customizable="false"/>
+     
+</apex:page>

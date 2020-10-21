@@ -1,0 +1,8 @@
+<aura:component >
+   
+    <aura:attribute name="errorMessage" type="String[]" access="PUBLIC"/>
+    
+    <aura:if isTrue="{!v.errorMessage}">
+        <ui:inputDefaultError value="{!v.errorMessage}"/>
+    </aura:if>
+</aura:component>

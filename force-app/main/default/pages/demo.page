@@ -1,0 +1,4 @@
+<apex:page controller="mySecondController" tabStyle="Account">
+    <apex:sectionHeader title="New Account Edit Page" />
+    
+</apex:page>
