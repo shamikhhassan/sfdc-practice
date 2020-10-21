@@ -1,4 +1,5 @@
 ({
+    //Generic method to do a server call
 	callServer: function(component, method, callback, params, cacheable){
 		var action = component.get(method);
 
