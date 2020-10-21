@@ -1,0 +1,14 @@
+<apex:page standardController="titanItem__c">
+<apex:form >
+    <apex:pageBlock mode="edit">
+        <apex:pageBlockButtons >
+            <apex:commandButton action="{!save}" value="Save"/>
+        </apex:pageBlockButtons>
+        <apex:pageBlockSection title="Dependent Picklists" columns="2">
+              <apex:inputField value="{!titanItem__c.Product__c}"/>
+              <apex:inputField value="{!titanItem__c.titanImplementation_Type__c}"/>
+              <apex:inputField value="{!titanItem__c.titanAccess_Type__c}"/>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

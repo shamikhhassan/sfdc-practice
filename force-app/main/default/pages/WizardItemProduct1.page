@@ -1,0 +1,30 @@
+<apex:page controller="iTemController" >
+
+<script>
+function confirmCancel() {
+var isCancel = confirm("Are you sure you wish to cancel?");
+if (isCancel) return true;
+return false;
+}
+</script>
+
+<apex:form >
+    <apex:sectionHeader title="Product Item Wizard" subtitle="Step 1 of 1"/>
+    <apex:pageBlock title="Enter Item Product Details">
+        <apex:pageBlockButtons >
+            <apex:commandButton action="{!step2}" value="Next"/>
+            <apex:commandButton action="{!cancel}" value="Cancel"  onclick="return confirmCancel()" immediate="true"/>
+        </apex:pageBlockButtons>
+        
+        <apex:pageBlockSection title="Product Section">
+            <apex:inputField value="{!product.titanCategory__c}"/>
+            <apex:inputField value="{!product.titanOrigin__c}"/>
+        </apex:pageBlockSection>
+        
+        <apex:pageBlockSection title="Item Section">
+            <apex:inputField value="{!item.titanImplementation_Type__c}"/>
+            <apex:inputField value="{!item.titanAccess_Type__c}"/>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

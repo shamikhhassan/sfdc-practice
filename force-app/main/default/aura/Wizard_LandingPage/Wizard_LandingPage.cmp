@@ -1,0 +1,19 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:LightningQuickActionWithoutHeader,forceCommunity:availableForAllPageTypes" 
+                access="global" 
+                >
+    
+    <aura:attribute name="url" type="String"/>
+    <aura:attribute name="pageReference" type="Object"/>
+    <aura:attribute name="recordId" type="String"/>
+    <!--<aura:handler name="init" value="{! this }" action="{! c.handleInit }"/>-->
+    <lightning:navigation aura:id="navService"/>
+    <lightning:workspaceAPI aura:id="workspace"/>
+        <lightning:button label="Open Sub Tab" onclick="{!c.openSubtab}"/>
+     <lightning:button label="Open Tab" onclick="{!c.openTab}"/>
+    
+        <lightning:button label="triggerNav" onclick="{!c.triggerNav}"/>
+    <a href="{!v.url}">Proceed to Data Capture</a>
+    
+    {!v.recordId}
+    
+</aura:component>

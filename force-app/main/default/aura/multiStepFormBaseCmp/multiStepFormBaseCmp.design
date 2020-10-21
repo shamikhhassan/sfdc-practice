@@ -1,0 +1,5 @@
+<design:component > 
+    <design:attribute name="formType" datasource="CreateClass,RegisterStudent" 
+                      Description="The type of form being implemented"/>
+    <design:attribute name="numberOfSteps" description="Number of steps in wizard"/>
+</design:component>
