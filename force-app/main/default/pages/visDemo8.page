@@ -1,3 +1,0 @@
-<apex:page standardController="titanProduct__c">
-<apex:relatedList list="Items__r" />
-</apex:page>

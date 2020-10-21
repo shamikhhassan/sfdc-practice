@@ -1,4 +1,0 @@
-<apex:component >
-<apex:attribute name="myattribute" type="String" description="TODO: Describe me"/>
-This is your new Component: singlePhoto
-</apex:component>

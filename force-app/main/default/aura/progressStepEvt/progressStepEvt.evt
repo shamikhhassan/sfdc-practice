@@ -1,4 +1,0 @@
-<aura:event type="COMPONENT" description="Fired to indicate forward or backward advancement in the progress steps">
-	<aura:attribute name="step" type="Integer" />
-	<aura:attribute name="stepDisplayText" type="String" />
-</aura:event>

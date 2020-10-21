@@ -1,3 +1,0 @@
-<apex:page controller="SummaryStatsController" readOnly="true">
-<p>Here is a statistic: {!veryLargeSummaryStat}</p>
-</apex:page>
